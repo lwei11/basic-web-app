@@ -142,9 +142,28 @@ export default function QueryProcessor(query: string): string {
     }
 
     const resultString = filteredIntegers.join(", ");
-    return resultString;
-    
+    return resultString;   
   }
+
+  if (query.toLowerCase().includes("power")) {
+    // Use regular expressions to find integers in the string
+    const integerRegex = /\d+/g; // Matches one or more digits
+
+    const integersFound = query.match(integerRegex);
+
+    var result = 0
+    if (integersFound && integersFound.length >= 2) {
+      const firstInteger = parseInt(integersFound[0]);
+      const secondInteger = parseInt(integersFound[1]);
+      // Perform addition
+      result = firstInteger ** secondInteger;
+    }
+ 
+    return (
+      result.toString()
+    );
+  }
+
 
 
   return "";
