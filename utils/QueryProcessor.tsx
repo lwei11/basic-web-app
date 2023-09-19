@@ -35,6 +35,27 @@ export default function QueryProcessor(query: string): string {
       // Perform addition
       result = firstInteger + secondInteger;
     }
+
+    return (
+      result.toString()
+    );
+  }
+
+  if (query.toLowerCase().includes("multiplied")) {
+    var res = query.match(/d+/g)
+
+    // Use regular expressions to find integers in the string
+    const integerRegex = /\d+/g; // Matches one or more digits
+
+    const integersFound = query.match(integerRegex);
+
+    var result = 0
+    if (integersFound && integersFound.length >= 2) {
+      const firstInteger = parseInt(integersFound[0]);
+      const secondInteger = parseInt(integersFound[1]);
+      // Perform addition
+      result = firstInteger * secondInteger;
+    }
     
     return (
       result.toString()
