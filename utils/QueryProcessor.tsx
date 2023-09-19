@@ -78,7 +78,7 @@ export default function QueryProcessor(query: string): string {
       // Perform addition
       result = Math.max(firstInteger, secondInteger, thirdInteger);
     }
-    
+ 
     return (
       result.toString()
     );
@@ -87,3 +87,4 @@ export default function QueryProcessor(query: string): string {
 
   return "";
 }
+   
