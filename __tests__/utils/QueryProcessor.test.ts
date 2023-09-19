@@ -30,7 +30,7 @@ describe("QueryProcessor", () => {
         const query = "your name";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
-            "luna"
+            "Luna"
           ));
     });
 });
