@@ -50,17 +50,16 @@ export default function QueryProcessor(query: string): string {
 
     const integersFound = query.match(integerRegex);
 
-    var result = 0
-    if (integersFound && integersFound.length >= 2) {
-      const firstInteger = parseInt(integersFound[0]);
-      const secondInteger = parseInt(integersFound[1]);
-      // Perform addition
-      result = firstInteger + secondInteger;
+    if (!integersFound) {
+      return ""; // No integers found
     }
+  
+    const sum = integersFound
+      .map((str) => parseInt(str, 10)) // Parse each integer
+      .reduce((acc, num) => acc + num, 0); // Sum up the integers
+  
+    return sum.toString();
 
-    return (
-      result.toString()
-    );
   }
 
   if (query.toLowerCase().includes("multiplied")) {

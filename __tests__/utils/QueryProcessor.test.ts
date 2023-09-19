@@ -33,4 +33,22 @@ describe("QueryProcessor", () => {
             "Luna"
           ));
     });
+
+    test('prime', () => {
+        const query = "Which of the following numbers are primes: 75, 2, 45, 70, 55?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "2"
+          ));
+    });
+
+    test('prime2', () => {
+        const query = "Which of the following numbers are primes: 48, 32, 82, 13, 17?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "13, 17"
+          ));
+    });
+
+
 });
