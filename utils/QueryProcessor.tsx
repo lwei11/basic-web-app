@@ -1,3 +1,27 @@
+function isPrime(number: number): boolean {
+  if (number <= 1) {
+    return false;
+  }
+
+  if (number <= 3) {
+    return true;
+  }
+
+  if (number % 2 === 0 || number % 3 === 0) {
+    return false;
+  }
+
+  for (let i = 5; i * i <= number; i += 6) {
+    if (number % i === 0 || number % (i + 2) === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
+
 
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
@@ -95,6 +119,32 @@ export default function QueryProcessor(query: string): string {
     return (
       result.toString()
     );
+  }
+
+  if (query.toLowerCase().includes("prime")) {
+    // Use regular expressions to find integers in the string
+    const integerRegex = /\d+/g; // Matches one or more digits
+
+    const integersFound = query.match(integerRegex);
+
+    var result = 0
+    if (!integersFound) {
+      return (
+        ""
+      );
+    }
+
+    const filteredIntegers = integersFound
+    .map((str) => parseInt(str)) // Parse each integer
+    .filter((num) => isPrime(num)); // Filter integers using the helper function
+
+    if (filteredIntegers.length === 0) {
+      return ""; // No integers passed the helper function's test
+    }
+
+    const resultString = filteredIntegers.join(", ");
+    return resultString;
+    
   }
 
 
