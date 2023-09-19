@@ -21,8 +21,6 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("plus")) {
-    var res = query.match(/d+/g)
-
     // Use regular expressions to find integers in the string
     const integerRegex = /\d+/g; // Matches one or more digits
 
@@ -42,8 +40,6 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("multiplied")) {
-    var res = query.match(/d+/g)
-
     // Use regular expressions to find integers in the string
     const integerRegex = /\d+/g; // Matches one or more digits
 
@@ -63,8 +59,6 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("largest")) {
-    var res = query.match(/d+/g)
-
     // Use regular expressions to find integers in the string
     const integerRegex = /\d+/g; // Matches one or more digits
 
